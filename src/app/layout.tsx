@@ -50,6 +50,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <title>Jessica & Brent</title>
       <body className={`${inter.className} ${coromont_garamond.className}`}>
         <header>
           <nav className="bg-white shadow">
