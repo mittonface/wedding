@@ -9,7 +9,7 @@ body {
 
 @font-face {
   font-family: "heanffe";
-  src: url("/heanffe.ttf");
+  src: url("https://res.cloudinary.com/dii1nnhpp/raw/upload/v1694202175/assets/Heanffe_algkwc.ttf");
 }
 
 .fancy {
