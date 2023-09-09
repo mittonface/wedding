@@ -113,7 +113,7 @@ export default function RootLayout({
                         <a href="/gallery">Photos</a>
                       </li>
                       <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/portfolio">Frequently Asked Questions</a>
+                        <a href="/faq">Frequently Asked Questions</a>
                       </li>
                     </ul>
                   </div>
@@ -127,7 +127,7 @@ export default function RootLayout({
                     Photos
                   </a>
                   <a
-                    href="#"
+                    href="/faq"
                     className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
                   >
                     Frequently Asked Questions
