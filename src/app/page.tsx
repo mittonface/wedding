@@ -1,3 +1,4 @@
+import { Divider } from "./divider";
 import { Hero } from "./hero";
 import { Map } from "./map";
 import { useState } from "react";
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <div className="py-10">
         <Hero />
+        <Divider />
         <Map />
       </div>
     </>
