@@ -48,7 +48,7 @@ export default function FrequentlyAskedQuestions() {
         </div>
 
         <p className="text-center text-gray-600 textbase mt-9">
-          Didn’t find the answer you are looking for?{" "}
+          Didn’t find the answer you were looking for?{" "}
           <a
             href="mailto:wedding@jessandbrent.ca"
             title=""
