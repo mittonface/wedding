@@ -26,6 +26,22 @@ export default function FrequentlyAskedQuestions() {
             </>
           }
         />
+        <Question
+          question="What are the transportation options?"
+          answer={
+            <>
+              <p>
+                The venue is located in Stratford, PE, which is just outside of
+                Charlottetown. Taxi service will be available after the wedding.
+              </p>
+              <br />
+              <ul>
+                <li>City Taxi - (902) 569-9999</li>
+                <li>Co-op Taxi - (902) 628-8200</li>
+              </ul>
+            </>
+          }
+        />
 
         <p className="text-center text-gray-600 textbase mt-9">
           Didn’t find the answer you were looking for?{" "}

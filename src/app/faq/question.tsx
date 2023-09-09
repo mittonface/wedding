@@ -12,7 +12,7 @@ export const Question = ({
 }) => {
   const [showQ1, setShowQ1] = useState(false);
   return (
-    <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
+    <div className="max-w-3xl mx-auto mt-8 space-y-3 md:mt-8">
       <div className="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
         <button
           type="button"
