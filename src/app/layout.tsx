@@ -1,10 +1,10 @@
 "use client";
 
 import "./globals.css";
-import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { useState } from "react";
 import Countdown from "react-countdown";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const coromont_garamond = Cormorant_Garamond({
@@ -157,6 +157,7 @@ export default function RootLayout({
           </div>
         </header>
         {children}
+        <Analytics />
       </body>
     </html>
   );
