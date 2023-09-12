@@ -52,7 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <title>Jessica & Brent</title>
       <body className={`${inter.className} ${coromont_garamond.className}`}>
-        <header>
+        {/* <header>
           <nav className="bg-white shadow">
             <div className="container mx-auto px-6 py-3 ">
               <div className="md:flex md:items-center md:justify-between">
@@ -157,7 +157,7 @@ export default function RootLayout({
           </div>
         </header>
         {children}
-        <Analytics />
+        <Analytics /> */}
       </body>
     </html>
   );
