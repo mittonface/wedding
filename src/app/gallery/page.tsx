@@ -64,6 +64,13 @@ export default async function Gallery() {
             ))}
           </div>
         ))}
+        <p>
+          {" "}
+          Photo credit to{" "}
+          <a href="https://www.chelseamasonphotography.com/">
+            Chelsea Mason Photography
+          </a>
+        </p>
       </div>
     </div>
   );
