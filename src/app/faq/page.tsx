@@ -71,7 +71,7 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                We remmend semi-formal to cocktail attire, but wish for everyone
+                We recommend semi-formal to cocktail attire, but wish for everyone
                 to be comfortable! There is no specific colour palette to
                 follow.
               </p>
@@ -84,7 +84,7 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                This will be indicated on you invitation for your convenience.
+                This will be indicated on your invitation for your convenience.
               </p>
             </>
           }
@@ -95,7 +95,7 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                To allow all guests, including parents, a night of relaxation an
+                To allow all guests, including parents, a night of relaxation and
                 uninhibited partying, we ask that our wedding be child free.
               </p>
             </>
@@ -107,7 +107,7 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                Hor d'oeuvres will be available during cocktail horus, followed
+                Hor d'oeuvres will be available during cocktail hour, followed
                 by a sit down dinner. Dinner choices will be available with your
                 RSVP.
               </p>
