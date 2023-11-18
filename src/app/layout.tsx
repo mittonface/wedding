@@ -121,6 +121,12 @@ export default function RootLayout({
 
                 <div className="hidden -mx-4 md:flex md:items-center">
                   <a
+                    href="/"
+                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
+                  >
+                    Home
+                  </a>
+                  <a
                     href="/gallery"
                     className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
                   >
@@ -131,6 +137,12 @@ export default function RootLayout({
                     className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
                   >
                     Frequently Asked Questions
+                  </a>
+                  <a
+                    href="/accommodations"
+                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
+                  >
+                    Accommodations
                   </a>
                 </div>
               </div>
