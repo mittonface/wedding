@@ -23,7 +23,7 @@ export default function Accommodations() {
               description="Funky accommodations, artsy vibes, and just an elevator ride away from the live music action at Trailside Music Hall. "
               address="155 Kent St, Charlottetown"
               website="https://www.theartshotel.ca/en/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337435/wedding/arts_hotel_rtrebc.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337435/assets/arts_hotel_rtrebc.png"
             ></Hotel>
           </div>
 
@@ -39,35 +39,35 @@ export default function Accommodations() {
               description="A unique cluster of lovingly restored, 4.5-star heritage buildings situated within Charlottetown's National Historic District."
               address="58 Great George St, Charlottetown"
               website="https://thegreatgeorge.com/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337570/wedding/great-george_ahzwdm.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337570/assets/great-george_ahzwdm.png"
             ></Hotel>
             <Hotel
               hotelName="Delta Hotel"
               description="Close to the scenic harbor and features easy access to area attractions along with spacious accommodations, modern amenities and an on-site gourmet restaurant."
               address="18 Queen St, Charlottetown"
               website="https://www.marriott.com/en-us/hotels/yygdp-delta-hotels-prince-edward/overview/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337655/wedding/delta_mfcmie.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337655/assets/delta_mfcmie.png"
             ></Hotel>
             <Hotel
               hotelName="Charlottetown Inn & Conference Centre"
               description="A more affordable option. Stays include a free buffet breakfast."
               address="238 Grafton St, Charlottetown"
               website="https://www.charlottetowninn.com/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337736/wedding/charlottetown-conference_aendvy.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337736/assets/charlottetown-conference_aendvy.png"
             ></Hotel>
             <Hotel
               hotelName="Rodd Charlottetown"
               description="This elegant hotel in Charlottetown built in 1931 features marble floors and vaulted ceilings. Charlottetown Harbor can be seen from the rooftop garden."
               address="75 Kent St, Charlottetown"
               website="https://roddvacations.com/hotels/rodd-charlottetown/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337810/wedding/rodd_tjgoqn.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337810/assets/rodd_tjgoqn.png"
             ></Hotel>
             <Hotel
               hotelName="Fairholm Boutique Inns"
               description="Fairholm Boutique Inns, a five-star National Historic property in Charlottetown, Prince Edward Island, features 33 uniquely decorated suites in four restored heritage buildings."
               address="181 Fitzroy St, Charlottetown"
               website="https://www.fairholminn.com/"
-              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337913/wedding/fairholm_dbzl0n.png"
+              img="https://res.cloudinary.com/dii1nnhpp/image/upload/v1700337913/assets/fairholm_dbzl0n.png"
             ></Hotel>
           </div>
         </div>
