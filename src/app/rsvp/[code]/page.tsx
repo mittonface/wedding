@@ -6,7 +6,7 @@ import AttendanceSelection from "./attendance";
 import { GuestDetails } from "./guest-details";
 import { MealSelect } from "./meal-selection";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export type RSVP = {
   rsvpId: string;
