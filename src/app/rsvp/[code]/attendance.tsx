@@ -1,5 +1,6 @@
 import { Field, FormikProps } from "formik";
 import { RSVP } from "./page";
+import { FaHeartBroken, FaRegHeart } from "react-icons/fa";
 
 export default function AttendanceSelection(formikProps: FormikProps<RSVP>) {
   const selectedClasses = "border-blue-600 text-blue-600";
@@ -29,11 +30,23 @@ export default function AttendanceSelection(formikProps: FormikProps<RSVP>) {
             />
             <label
               htmlFor="attendence-yes"
-              className={`inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 ${
-                formikProps.values.attending ? selectedClasses : ""
+              className={`inline-flex items-center justify-between w-full p-5  bg-white border rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 ${
+                formikProps.values.attending
+                  ? selectedClasses
+                  : "border-gray-200 text-gray-500"
               }`}
             >
-              <div className="block">Yes</div>
+              <div className="block">
+                <span>
+                  {formikProps.values.attending && (
+                    <FaRegHeart
+                      size={24}
+                      style={{ display: "inline-block", marginRight: 10 }}
+                    />
+                  )}{" "}
+                  Yes
+                </span>
+              </div>
             </label>
           </li>
           <li>
@@ -52,12 +65,22 @@ export default function AttendanceSelection(formikProps: FormikProps<RSVP>) {
             />
             <label
               htmlFor="attendence-no"
-              className={`inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 ${
-                formikProps.values.attending ? "" : selectedClasses
+              className={`inline-flex items-center justify-between w-full p-5 bg-white border rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 ${
+                formikProps.values.attending
+                  ? "border-gray-200 text-gray-500"
+                  : selectedClasses
               }`}
             >
               <div className="block">
-                <p>No</p>
+                <span>
+                  {!formikProps.values.attending && (
+                    <FaHeartBroken
+                      size={24}
+                      style={{ display: "inline-block", marginRight: 10 }}
+                    />
+                  )}{" "}
+                  No
+                </span>
               </div>
             </label>
           </li>

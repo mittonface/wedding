@@ -24,7 +24,10 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
   useEffect(() => {
     fetch(`https://wedding-backend.brent.click/rsvp/${params.code}`)
       .then((response) => response.json())
-      .then((data) => setInitialValues(data))
+      .then((data) => {
+        data = { ...data, added: null }; // just letting the DB set this
+        setInitialValues(data);
+      })
       .catch((error) => console.error("Error:", error));
   }, [params.code]);
 
@@ -70,10 +73,23 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                 values: RSVP,
                 { setSubmitting }: FormikHelpers<RSVP>
               ) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values));
-                  setSubmitting(false);
-                }, 500);
+                fetch(`https://wedding-backend.brent.click/rsvp`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(values),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    // Handle response here
+                    console.log(data);
+                    setSubmitting(false);
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                    setSubmitting(false);
+                  });
               }}
             >
               {(formikProps) => (
@@ -81,22 +97,39 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                   <div className="mb-5">
                     {renderFormStep(activeStep, formikProps)}
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setActiveStep(activeStep - 1)}
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-                    disabled={activeStep === 0}
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="button"
-                    className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-                    onClick={() => setActiveStep(activeStep + 1)}
-                    disabled={activeStep === 2}
-                  >
-                    Next
-                  </button>
+                  {activeStep !== 0 && (
+                    <button
+                      type="button"
+                      onClick={() => setActiveStep(activeStep - 1)}
+                      className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                      disabled={activeStep === 0}
+                    >
+                      Back
+                    </button>
+                  )}
+
+                  {activeStep !== 2 && formikProps.values.attending && (
+                    <button
+                      type="button"
+                      className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                      onClick={() => setActiveStep(activeStep + 1)}
+                      disabled={activeStep === 2}
+                    >
+                      Next
+                    </button>
+                  )}
+
+                  {((activeStep === 2 && formikProps.values.attending) ||
+                    !formikProps.values.attending) && (
+                    <>
+                      <button
+                        type="submit"
+                        className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                      >
+                        Submit RSVP
+                      </button>
+                    </>
+                  )}
                 </Form>
               )}
             </Formik>
