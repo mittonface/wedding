@@ -6,6 +6,8 @@ import AttendanceSelection from "./attendance";
 import { GuestDetails } from "./guest-details";
 import { MealSelect } from "./meal-selection";
 
+import { useRouter } from "next/router";
+
 export type RSVP = {
   rsvpId: string;
   rsvpName: string;
@@ -20,6 +22,7 @@ export type RSVP = {
 export default function RSVPCode({ params }: { params: { code: string } }) {
   const [initialValues, setInitialValues] = useState<RSVP | null>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useRouter(); // if you are using React Router v6
 
   useEffect(() => {
     fetch(`https://wedding-backend.brent.click/rsvp/${params.code}`)
@@ -80,7 +83,16 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                   },
                   body: JSON.stringify(values),
                 })
-                  .then((response) => response.json())
+                  .then((response) => {
+                    if (response.ok) {
+                      if (values.attending) {
+                        navigate.push("/rsvpyes");
+                      } else {
+                        navigate.push("/rsvpno");
+                      }
+                    }
+                    return response.json();
+                  })
                   .then((data) => {
                     // Handle response here
                     console.log(data);
