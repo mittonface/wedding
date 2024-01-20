@@ -66,6 +66,7 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
           rows={4}
           className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Write your thoughts here..."
+          value={formikProps.values.extraText}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
             formikProps.setValues({
               ...formikProps.values,
