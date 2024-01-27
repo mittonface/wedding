@@ -144,6 +144,12 @@ export default function RootLayout({
                   >
                     Accommodations
                   </a>
+                  <a
+                    href="/rsvp"
+                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
+                  >
+                    RSVP
+                  </a>
                 </div>
               </div>
             </div>
