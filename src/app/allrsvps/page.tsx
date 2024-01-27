@@ -43,7 +43,7 @@ export default function AllRsvps() {
 
   return (
     <div className="flex items-center min-h-screen flex-col">
-      <table className="table-auto w-full mt-4">
+      <table className="table-auto  mt-4">
         <thead>
           <tr>
             <th className="px-4 py-2">ID</th>
