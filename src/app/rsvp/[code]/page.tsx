@@ -7,6 +7,7 @@ import { GuestDetails } from "./guest-details";
 import { MealSelect } from "./meal-selection";
 
 import { useRouter } from "next/navigation";
+import "./spinner.css";
 
 export type RSVP = {
   rsvpId: string;
@@ -56,7 +57,13 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
   };
 
   if (!initialValues) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center h-screen">
+        <div id="loading-bar-spinner" className="spinner">
+          <div className="spinner-icon"></div>
+        </div>
+      </div>
+    );
   }
 
   return (
