@@ -110,10 +110,20 @@ export default function RootLayout({
                     </div>
                     <ul className="flex flex-col items-center justify-center min-h-[250px]">
                       <li className="border-b border-gray-400 my-4 uppercase">
+                        <a href="/">Home</a>
+                      </li>
+                      <li className="border-b border-gray-400 my-4 uppercase">
                         <a href="/gallery">Photos</a>
                       </li>
                       <li className="border-b border-gray-400 my-4 uppercase">
                         <a href="/faq">Frequently Asked Questions</a>
+                      </li>
+
+                      <li className="border-b border-gray-400 my-4 uppercase">
+                        <a href="/accommodations">Accommodations</a>
+                      </li>
+                      <li className="border-b border-gray-400 my-4 uppercase">
+                        <a href="/RSVP">RSVP</a>
                       </li>
                     </ul>
                   </div>
