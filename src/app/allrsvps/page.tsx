@@ -17,7 +17,7 @@ export type RSVP = {
 export default function AllRsvps() {
   const [initialValues, setInitialValues] = useState<RSVP[] | null>(null);
   useEffect(() => {
-    fetch(`https://wedding-backend.brent.click/rsvps`)
+    fetch(`${process.env.BACKEND_URL}/rsvps`)
       .then((response) => response.json())
       .then((data) => {
         // Sort the data by 'added' field in descending order

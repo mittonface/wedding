@@ -25,7 +25,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
   const navigate = useRouter(); // if you are using React Router v6
 
   useEffect(() => {
-    fetch(`https://wedding-backend.brent.click/rsvp/${params.code}`)
+    fetch(`${process.env.BACKEND_URL}/rsvp/${params.code}`)
       .then((response) => response.json())
       .then((data) => {
         data = { ...data, added: null }; // just letting the DB set this
@@ -76,7 +76,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                 values: RSVP,
                 { setSubmitting }: FormikHelpers<RSVP>
               ) => {
-                fetch(`https://wedding-backend.brent.click/rsvp`, {
+                fetch(`${process.env.BACKEND_URL}/rsvp`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
