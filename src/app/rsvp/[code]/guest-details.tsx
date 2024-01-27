@@ -11,23 +11,23 @@ export function GuestDetails(formikProps: FormikProps<RSVP>) {
         >
           How many people are you RSVP'ing for?
         </label>
-        <input
-          type="number"
+        <select
           id="number-input"
           aria-describedby="helper-text-explanation"
-          className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+          className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           value={formikProps.values.numGuests}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
             const newValue = parseInt(event.target.value, 10);
-
-            if (newValue == 1 || newValue == 2)
-              formikProps.setValues({
-                ...formikProps.values,
-                numGuests: parseInt(event.target.value),
-              });
+            formikProps.setValues({
+              ...formikProps.values,
+              numGuests: newValue,
+            });
           }}
           required
-        />
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
       </div>
 
       <div className="mb-5">
