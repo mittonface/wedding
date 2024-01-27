@@ -17,7 +17,7 @@ export type RSVP = {
 export default function AllRsvps() {
   const [initialValues, setInitialValues] = useState<RSVP[] | null>(null);
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/rsvps`)
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/rsvps`)
       .then((response) => response.json())
       .then((data) => {
         // Sort the data by 'added' field in descending order

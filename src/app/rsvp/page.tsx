@@ -42,7 +42,7 @@ export default function RSVP() {
 
               <button
                 type="submit"
-                className="w-full h-8 bg-green-500 text-white rounded-md"
+                className="w-full h-8 bg-green-500 text-white rounded-md mt-3"
               >
                 Submit
               </button>
