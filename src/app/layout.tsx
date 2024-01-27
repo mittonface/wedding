@@ -123,7 +123,7 @@ export default function RootLayout({
                         <a href="/accommodations">Accommodations</a>
                       </li>
                       <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/RSVP">RSVP</a>
+                        <a href="/rsvp">RSVP</a>
                       </li>
                     </ul>
                   </div>
