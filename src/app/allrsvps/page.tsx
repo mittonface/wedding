@@ -16,6 +16,8 @@ export type RSVP = {
 
 export default function AllRsvps() {
   const [initialValues, setInitialValues] = useState<RSVP[] | null>(null);
+  const [totalNumGuests, setTotalNumGuests] = useState(0);
+  const [numAttendingGuests, setNumAttendingGuests] = useState(0);
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/rsvps`)
       .then((response) => response.json())
@@ -27,7 +29,7 @@ export default function AllRsvps() {
         );
 
         // Remove duplicates based on 'rsvpId'
-        const uniqueData = [];
+        const uniqueData: RSVP[] = [];
         const map = new Map();
         for (let item of sortedData) {
           if (!map.has(item.rsvpId)) {
@@ -36,6 +38,18 @@ export default function AllRsvps() {
           }
         }
 
+        let totalCounter = 0;
+        let attendingCounter = 0;
+        for (const rsvp of uniqueData) {
+          totalCounter += rsvp.numGuests;
+
+          if (rsvp.attending) {
+            attendingCounter += rsvp.numGuests;
+          }
+        }
+
+        setNumAttendingGuests(attendingCounter);
+        setTotalNumGuests(totalCounter);
         setInitialValues(uniqueData);
       })
       .catch((error) => console.error("Error:", error));
@@ -83,6 +97,12 @@ export default function AllRsvps() {
                 <td className="border px-4 py-2">{rsvp.extraText}</td>
               </tr>
             ))}
+          <tr>
+            <td colSpan={2}>
+              <strong>Total # Invited:</strong> {totalNumGuests}
+            </td>
+            <td colSpan={3}>Total Attending: {numAttendingGuests}</td>
+          </tr>
         </tbody>
       </table>
     </div>
