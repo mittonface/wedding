@@ -34,7 +34,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
         setInitialValues(data);
       })
       .catch((error) => console.error("Error:", error));
-  }, [params.code]);
+  }, []);
 
   const renderFormStep = (step: number, formikProps: FormikProps<RSVP>) => {
     switch (step) {
