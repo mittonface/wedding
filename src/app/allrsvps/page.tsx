@@ -98,9 +98,7 @@ export default function AllRsvps() {
               </tr>
             ))}
           <tr>
-            <td colSpan={2}>
-              <strong>Total # Invited:</strong> {totalNumGuests}
-            </td>
+            <td colSpan={2}>Total # Invited: {totalNumGuests}</td>
             <td colSpan={3}>Total Attending: {numAttendingGuests}</td>
           </tr>
         </tbody>
