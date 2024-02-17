@@ -6,6 +6,32 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
   return (
     <>
       <div className="mb-5">
+        <span className="underline">Beef Short Rib</span>
+        <div>
+          Braised, off-the-bone short rib, with a balsamic demi glace. Served
+          with Irish mashed potatoes and seasonal vegetables.{" "}
+        </div>
+      </div>
+
+      <div className="mb-5">
+        <span className="underline">Roasted Chicken Supreme</span>
+        <div>
+          Roasted chicken breast served in a Sage pan jus. Served with Irish
+          mashed potatoes and seasonal vegetables.
+        </div>
+      </div>
+
+      <div className="mb-5">
+        <span className="underline">Vegetarian Option</span>
+        <div>
+          Either a Tofu Poke Bowl, Vegetarian Risotto, or a Chana Masala Curry.
+          We will only be serving one of these options, so please let us know
+          which you'd prefer in the field for other notes so we know which to
+          choose!
+        </div>
+      </div>
+
+      <div className="mb-5">
         <label
           htmlFor="guest1Meal"
           className="block mb-2 text-sm font-medium text-gray-900 "
@@ -24,8 +50,11 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
           }}
         >
           <option selected>Choose a meal</option>
-          <option value="beef">Beef</option>
-          <option value="chicken">Chicken</option>
+          <option value="beef">Beef Short Rib</option>
+          <option value="chicken">Chicken Supreme</option>
+          <option value="vegetarian">
+            Vegetarian (please specify your preference)
+          </option>
         </select>
       </div>
 
@@ -49,8 +78,11 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
             }}
           >
             <option selected>Choose a meal</option>
-            <option value="beef">Beef</option>
-            <option value="chicken">Chicken</option>
+            <option value="beef">Beef Short Rib</option>
+            <option value="chicken">Chicken Supreme</option>
+            <option value="vegetarian">
+              Vegetarian (please specify your preference)
+            </option>
           </select>
         </div>
       )}
