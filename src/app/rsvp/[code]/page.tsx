@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik, FormikHelpers, Form, FormikProps } from "formik";
+import { Formik, FormikHelpers, Form, FormikProps, FormikErrors } from "formik";
 import { useEffect, useState } from "react";
 import AttendanceSelection from "./attendance";
 import { GuestDetails } from "./guest-details";
@@ -23,6 +23,7 @@ export type RSVP = {
 export default function RSVPCode({ params }: { params: { code: string } }) {
   const [initialValues, setInitialValues] = useState<RSVP | null>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [formError, setError] = useState<string | null>(null);
   const navigate = useRouter(); // if you are using React Router v6
 
   useEffect(() => {
@@ -35,6 +36,31 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
       })
       .catch((error) => console.error("Error:", error));
   }, []);
+
+  interface FormValues {
+    mealSelection1: string;
+    mealSelection2?: string;
+    numGuests: number;
+  }
+
+  // Define a validation function with typed values
+  const validateMealSelections = (values: FormValues) => {
+    let errors: FormikErrors<FormValues> = {};
+
+    if (values.mealSelection1 === "Choose a meal") {
+      setError("Please select a meal for each of your guests.");
+
+      errors.mealSelection1 = "Please select a meal for guest 1";
+    }
+
+    if (values.numGuests === 2 && values.mealSelection2 === "Choose a meal") {
+      setError("Please select a meal for each of your guests.");
+
+      errors.mealSelection2 = "Please select a meal for guest 2";
+    }
+
+    return errors;
+  };
 
   const renderFormStep = (step: number, formikProps: FormikProps<RSVP>) => {
     switch (step) {
@@ -80,36 +106,44 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
           <div className="max-w-3xl mx-auto mt-8 space-y-3 md:mt-8">
             <Formik
               initialValues={initialValues}
-              onSubmit={(
-                values: RSVP,
-                { setSubmitting }: FormikHelpers<RSVP>
-              ) => {
-                fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/rsvp`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(values),
-                })
-                  .then((response) => {
-                    if (response.ok) {
-                      if (values.attending) {
-                        navigate.push("/rsvpyes");
-                      } else {
-                        navigate.push("/rsvpno");
+              validate={validateMealSelections}
+              validateOnChange={false}
+              validateOnBlur={false}
+              onSubmit={(values, { setSubmitting, setErrors }) => {
+                // Manual validation before submitting
+                const validationErrors = validateMealSelections(values);
+                console.log(validationErrors);
+                if (Object.keys(validationErrors).length > 0) {
+                  setSubmitting(false);
+                } else {
+                  // handle form submission
+                  fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/rsvp`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(values),
+                  })
+                    .then((response) => {
+                      if (response.ok) {
+                        if (values.attending) {
+                          navigate.push("/rsvpyes");
+                        } else {
+                          navigate.push("/rsvpno");
+                        }
                       }
-                    }
-                    return response.json();
-                  })
-                  .then((data) => {
-                    // Handle response here
-                    console.log(data);
-                    setSubmitting(false);
-                  })
-                  .catch((error) => {
-                    console.error("Error:", error);
-                    setSubmitting(false);
-                  });
+                      return response.json();
+                    })
+                    .then((data) => {
+                      // Handle response here
+                      console.log(data);
+                      setSubmitting(false);
+                    })
+                    .catch((error) => {
+                      console.error("Error:", error);
+                      setSubmitting(false);
+                    });
+                }
               }}
             >
               {(formikProps) => (
@@ -117,6 +151,10 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                   <div className="mb-5">
                     {renderFormStep(activeStep, formikProps)}
                   </div>
+                  {formError && (
+                    <div className="mb-5 text-red-500">{formError}</div>
+                  )}
+
                   {activeStep !== 0 && (
                     <button
                       type="button"
