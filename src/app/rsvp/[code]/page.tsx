@@ -37,26 +37,22 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  interface FormValues {
-    mealSelection1: string;
-    mealSelection2?: string;
-    numGuests: number;
-  }
-
   // Define a validation function with typed values
-  const validateMealSelections = (values: FormValues) => {
-    let errors: FormikErrors<FormValues> = {};
+  const validateMealSelections = (values: RSVP) => {
+    let errors: FormikErrors<RSVP> = {};
 
-    if (values.mealSelection1 === "Choose a meal") {
-      setError("Please select a meal for each of your guests.");
+    if (values.attending === true) {
+      if (values.mealSelection1 === "Choose a meal") {
+        setError("Please select a meal for each of your guests.");
 
-      errors.mealSelection1 = "Please select a meal for guest 1";
-    }
+        errors.mealSelection1 = "Please select a meal for guest 1";
+      }
 
-    if (values.numGuests === 2 && values.mealSelection2 === "Choose a meal") {
-      setError("Please select a meal for each of your guests.");
+      if (values.numGuests === 2 && values.mealSelection2 === "Choose a meal") {
+        setError("Please select a meal for each of your guests.");
 
-      errors.mealSelection2 = "Please select a meal for guest 2";
+        errors.mealSelection2 = "Please select a meal for guest 2";
+      }
     }
 
     return errors;
