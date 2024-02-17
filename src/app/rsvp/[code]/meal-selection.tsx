@@ -6,6 +6,10 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
   return (
     <>
       <div className="mb-5">
+        <div className="mb-5">
+          Dinner will consist of a salad, followed by the entrée of your
+          choosing, then a warm carrot cake for dessert.{" "}
+        </div>
         <span className="underline">Beef Short Rib</span>
         <div>
           Braised, off-the-bone short rib, with a balsamic demi glace. Served

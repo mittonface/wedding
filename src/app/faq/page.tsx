@@ -61,7 +61,15 @@ export default function FrequentlyAskedQuestions() {
           question="Where can I stay on PEI?"
           answer={
             <>
-              <p>Information to follow. We'll put together a list soon!</p>
+              <p>
+                Don't feel as though you need to stay in Stratford. The venue is
+                near enough near downtown Charlottetown that any hotel you
+                choose in the city will be nearby! See the{" "}
+                <a href="/accommodations" className="underline">
+                  Accommodations
+                </a>{" "}
+                page for a few options in different price points.
+              </p>
             </>
           }
         />
@@ -71,9 +79,9 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                We recommend semi-formal to cocktail attire, but wish for everyone
-                to be comfortable! There is no specific colour palette to
-                follow.
+                We recommend semi-formal to cocktail attire, but wish for
+                everyone to be comfortable! There is no specific colour palette
+                to follow.
               </p>
             </>
           }
@@ -95,8 +103,8 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                To allow all guests, including parents, a night of relaxation and
-                uninhibited partying, we ask that our wedding be child free.
+                To allow all guests, including parents, a night of relaxation
+                and uninhibited partying, we ask that our wedding be child free.
               </p>
             </>
           }
@@ -107,9 +115,10 @@ export default function FrequentlyAskedQuestions() {
           answer={
             <>
               <p>
-                Hor d'oeuvres will be available during cocktail hour, followed
-                by a sit down dinner. Dinner choices will be available with your
-                RSVP.
+                A selection of hor d'oeuvres will be available during cocktail
+                hour. Followed by a sit down dinner. Dinner will consist of a
+                salad, an entree you specify on your RSVP, and then a warm
+                carrot cake for dessert.
               </p>
               <br />
               <p>
@@ -167,21 +176,6 @@ export default function FrequentlyAskedQuestions() {
           }
         />
 
-        <Question
-          question="What else can I do while I'm on PEI?"
-          answer={
-            <>
-              <p>Here are a few of our favourite places:</p>
-              <br />
-              <ul>
-                <li>
-                  &#x2022; Upstreet Craft Brewery - this is where we had our
-                  first date!
-                </li>
-              </ul>
-            </>
-          }
-        />
         <p className="text-center text-gray-600 textbase mt-9">
           Didn’t find the answer you were looking for?{" "}
           <a

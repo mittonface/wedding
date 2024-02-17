@@ -6,15 +6,13 @@ export const Hero = () => {
       <div className="w-full lg:w-1/2">
         <div className="lg:max-w-lg">
           <h1 className="text-3xl font-bold tracking-wide lg:text-5xl uppercase">
-            Save the date
+            RSVP
           </h1>
 
           <div className="mt-8 space-y-5">
             <p className="flex items-center -mx-2 mx-2 text-lg">
-              If you've made it here you probably got a save the date from us!
-              We're still working out all the fun little details but we'll make
-              sure to keep you posted. Be on the lookout for RSVPs in the
-              comings months.
+              You should be recieving an RSVP from us soon, it will contain
+              instructions on how to let us know if we should expect you!
             </p>
 
             <p className="-mx-2 mx-2 text-lg">
@@ -45,12 +43,6 @@ export const Hero = () => {
           height={980}
           loading="lazy"
         />
-        {/* <Image
-          src="/shorekiss.png"
-          alt="Jess and Brent being cute next to some water"
-          width={1470}
-          height={980}
-        ></Image> */}
       </div>
     </div>
   );
