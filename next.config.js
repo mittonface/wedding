@@ -3,10 +3,7 @@ const nextConfig = {
   images: {
     domains: ["res.cloudinary.com"],
   },
-  optimization: {
-    minimizer: [],
-    minimize: false,
-  },
+  productionBrowserSourceMaps: true,
 };
 
 module.exports = nextConfig;
