@@ -93,12 +93,14 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-xl font-bold leading-tight text-black sm:text-xl lg:text-xl">
-            {initialValues.numGuests === 2
-              ? `RSVP For ${initialValues.rsvpName} and Guest`
-              : params.code === "BYJL" || params.code === "WWCJ"
+            {initialValues.numGuests === 1 &&
+            (params.code === "BYJL" || params.code === "WWCJ")
               ? `RSVP For ${initialValues.rsvpName}`
-              : `RSVP For ${initialValues.rsvpName} and Guest`}
+              : initialValues.numGuests === 1
+              ? `RSVP For ${initialValues.rsvpName} and Guest`
+              : `RSVP For ${initialValues.rsvpName}`}
           </h3>
+
           <div>
             You can come back to this page at any time to change any details if
             needed.
