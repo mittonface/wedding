@@ -24,6 +24,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
   const [initialValues, setInitialValues] = useState<RSVP | null>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [formError, setError] = useState<string | null>(null);
+  const [loading, setIsLoading] = useState(true);
   const navigate = useRouter(); // if you are using React Router v6
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
       .then((data) => {
         data = { ...data, added: null }; // just letting the DB set this
         setInitialValues(data);
+        setIsLoading(false);
       })
       .catch((error) => console.error("Error:", error));
   }, [params.code]);
@@ -78,7 +80,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
     return <></>;
   };
 
-  if (!initialValues) {
+  if (loading) {
     return (
       <div className="flex justify-center h-screen">
         <div id="loading-bar-spinner" className="spinner">
@@ -114,7 +116,6 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
               onSubmit={(values, { setSubmitting, setErrors }) => {
                 // Manual validation before submitting
                 const validationErrors = validateMealSelections(values);
-                console.log(validationErrors);
                 if (Object.keys(validationErrors).length > 0) {
                   setSubmitting(false);
                 } else {
@@ -138,7 +139,6 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
                     })
                     .then((data) => {
                       // Handle response here
-                      console.log(data);
                       setSubmitting(false);
                     })
                     .catch((error) => {
