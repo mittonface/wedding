@@ -21,10 +21,9 @@ export type RSVP = {
 };
 
 export default function RSVPCode({ params }: { params: { code: string } }) {
-  const [initialValues, setInitialValues] = useState<RSVP>();
+  const [initialValues, setInitialValues] = useState<RSVP | null>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [formError, setError] = useState<string | null>(null);
-  const [loading, setIsLoading] = useState(true);
   const navigate = useRouter(); // if you are using React Router v6
 
   useEffect(() => {
@@ -34,7 +33,6 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
       .then((data) => {
         data = { ...data, added: null }; // just letting the DB set this
         setInitialValues(data);
-        setIsLoading(false);
       })
       .catch((error) => console.error("Error:", error));
   }, [params.code, navigate]);
@@ -80,7 +78,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
     return <></>;
   };
 
-  if (loading) {
+  if (initialValues === null) {
     return (
       <div className="flex justify-center h-screen">
         <div id="loading-bar-spinner" className="spinner">
