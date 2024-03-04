@@ -5,6 +5,7 @@ const nextConfig = {
   },
   optimization: {
     minimizer: [],
+    minimize: false,
   },
 };
 
