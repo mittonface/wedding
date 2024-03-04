@@ -68,35 +68,45 @@ export default function AllRsvps() {
             <th className="px-4 py-2">Guest 1 Meal</th>
             <th className="px-4 py-2">Guest 2 Meal</th>
             <th className="px-4 py-2">Extra Notes</th>
+            <th className="px-4 py-2">RSVP Date</th>
 
             {/* Add more headers as needed */}
           </tr>
         </thead>
         <tbody>
           {initialValues &&
-            initialValues.map((rsvp, index) => (
-              <tr
-                key={index}
-                className={
-                  rsvp.attending === true
-                    ? "bg-green-100"
-                    : rsvp.attending === false
-                    ? "bg-red-100"
-                    : ""
-                }
-              >
-                <td className="border px-4 py-2">{rsvp.rsvpId}</td>
-                <td className="border px-4 py-2">{rsvp.rsvpName}</td>
-                <td className="border px-4 py-2">
-                  {rsvp.attending ? "Yes" : "No"}
-                </td>
-                <td className="border px-4 py-2">{rsvp.numGuests}</td>
-                <td className="border px-4 py-2">{rsvp.plusOneName}</td>
-                <td className="border px-4 py-2">{rsvp.mealSelection1}</td>
-                <td className="border px-4 py-2">{rsvp.mealSelection2}</td>
-                <td className="border px-4 py-2">{rsvp.extraText}</td>
-              </tr>
-            ))}
+            initialValues.map((rsvp, index) => {
+              const rsvpDate = new Date(rsvp.added);
+              const inviteSentDate = new Date("2024-02-17T18:31:54.301326");
+
+              const hasRsvped = rsvpDate > inviteSentDate;
+              return (
+                <tr
+                  key={index}
+                  className={
+                    !hasRsvped
+                      ? "bg-yellow-200"
+                      : rsvp.attending === true
+                      ? "bg-green-100"
+                      : rsvp.attending === false
+                      ? "bg-red-100"
+                      : ""
+                  }
+                >
+                  <td className="border px-4 py-2">{rsvp.rsvpId}</td>
+                  <td className="border px-4 py-2">{rsvp.rsvpName}</td>
+                  <td className="border px-4 py-2">
+                    {rsvp.attending ? "Yes" : "No"}
+                  </td>
+                  <td className="border px-4 py-2">{rsvp.numGuests}</td>
+                  <td className="border px-4 py-2">{rsvp.plusOneName}</td>
+                  <td className="border px-4 py-2">{rsvp.mealSelection1}</td>
+                  <td className="border px-4 py-2">{rsvp.mealSelection2}</td>
+                  <td className="border px-4 py-2">{rsvp.extraText}</td>
+                  <td className="border px-4 py-2">{rsvp.added}</td>
+                </tr>
+              );
+            })}
           <tr>
             <td colSpan={2}>Total # Invited: {totalNumGuests}</td>
             <td colSpan={3}>Total Attending: {numAttendingGuests}</td>
