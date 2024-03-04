@@ -35,7 +35,7 @@ export default function RSVPCode({ params }: { params: { code: string } }) {
         setInitialValues(data);
       })
       .catch((error) => console.error("Error:", error));
-  }, [params.code]);
+  }, []);
 
   // Define a validation function with typed values
   const validateMealSelections = (values: RSVP) => {
