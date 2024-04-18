@@ -28,10 +28,7 @@ export function MealSelect(formikProps: FormikProps<RSVP>) {
       <div className="mb-5">
         <span className="underline">Vegetarian Option</span>
         <div>
-          Either a Tofu Poke Bowl, Vegetarian Risotto, or a Chana Masala Curry.
-          We will only be serving one of these options, so please let us know
-          which you'd prefer in the field for other notes so we know which to
-          choose!
+          The vegetarian option will be a Chana Masala Curry. A tomato and onion curry stewed in chickpeas and aromatics.
         </div>
       </div>
 
