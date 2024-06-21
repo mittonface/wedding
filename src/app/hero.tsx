@@ -6,13 +6,14 @@ export const Hero = () => {
       <div className="w-full lg:w-1/2">
         <div className="lg:max-w-lg">
           <h1 className="text-3xl font-bold tracking-wide lg:text-5xl uppercase">
-            RSVP
+            Thanks for RSVP'ing!
           </h1>
 
           <div className="mt-8 space-y-5">
             <p className="flex items-center -mx-2 mx-2 text-lg">
-              You should be recieving an RSVP from us soon, it will contain
-              instructions on how to let us know if we should expect you!
+              Let us know if you need to change anything about your RSVP and
+              we'll try to accomodate as best as possible. Can't wait to
+              celebrate with you!
             </p>
 
             <p className="-mx-2 mx-2 text-lg">

@@ -123,7 +123,7 @@ export default function RootLayout({
                         <a href="/accommodations">Accommodations</a>
                       </li>
                       <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/rsvp">RSVP</a>
+                        <s>RSVP</s>
                       </li>
                     </ul>
                   </div>
@@ -154,12 +154,8 @@ export default function RootLayout({
                   >
                     Accommodations
                   </a>
-                  <a
-                    href="/rsvp"
-                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
-                  >
-                    RSVP
-                  </a>
+
+                  <s>RSVP</s>
                 </div>
               </div>
             </div>
