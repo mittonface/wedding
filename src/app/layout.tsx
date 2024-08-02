@@ -24,7 +24,7 @@ export default function RootLayout({
     setIsMobileMenuActive(!isMobileMenuActive);
   };
 
-  const ItsHere = () => <span>Today's the day!</span>;
+  const ItsHere = () => <span></span>;
 
   const countDownRenderer = ({
     days,
@@ -108,55 +108,11 @@ export default function RootLayout({
                         <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
                     </div>
-                    <ul className="flex flex-col items-center justify-center min-h-[250px]">
-                      <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/">Home</a>
-                      </li>
-                      <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/gallery">Photos</a>
-                      </li>
-                      <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/faq">Frequently Asked Questions</a>
-                      </li>
-
-                      <li className="border-b border-gray-400 my-4 uppercase">
-                        <a href="/accommodations">Accommodations</a>
-                      </li>
-                      <li className="border-b border-gray-400 my-4 uppercase">
-                        <s>RSVP</s>
-                      </li>
-                    </ul>
+                    <ul className="flex flex-col items-center justify-center min-h-[250px]"></ul>
                   </div>
                 </section>
 
-                <div className="hidden -mx-4 md:flex md:items-center">
-                  <a
-                    href="/"
-                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
-                  >
-                    Home
-                  </a>
-                  <a
-                    href="/gallery"
-                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
-                  >
-                    Photos
-                  </a>
-                  <a
-                    href="/faq"
-                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
-                  >
-                    Frequently Asked Questions
-                  </a>
-                  <a
-                    href="/accommodations"
-                    className="block mx-4 mt-2 md:mt-0 text-sm text-gray-700 capitalize hover:text-blue-600"
-                  >
-                    Accommodations
-                  </a>
-
-                  <s>RSVP</s>
-                </div>
+                <div className="hidden -mx-4 md:flex md:items-center"></div>
               </div>
             </div>
           </nav>
